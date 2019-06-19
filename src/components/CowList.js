@@ -5,7 +5,7 @@ import CowRow from "./CowRow";
 const CowList = inject("cowsStore")(
   observer(({ cowsStore }) => {
     return (
-      <div>
+      <div className="section">
         {cowsStore.cows.map(cow => (
           <CowRow key={cow.id} cow={cow} />
         ))}
