@@ -1,4 +1,4 @@
-import { observable, action, computed, decorate } from "mobx";
+import { observable, action, decorate } from "mobx";
 import { create, persist } from "mobx-persist";
 import uuid from "uuid";
 
@@ -8,16 +8,11 @@ export class CowsStore {
   add(cow) {
     this.cows.push({ ...cow, id: uuid.v4() });
   }
-
-  get count() {
-    return this.cows.length;
-  }
 }
 
 decorate(CowsStore, {
   cows: [persist("list"), observable],
-  add: action,
-  count: computed
+  add: action
 });
 
 const hydrate = create({
@@ -33,7 +28,8 @@ const initialState = window.localStorage.cows || {
       isFemale: true,
       color: "Brown",
       born: "2017-02-03",
-      breed: "Ayshire"
+      breed: "Ayshire",
+      production: [450, 500, 400, 620, 700, 550, 300, 440, 750, 800, 620, 350]
     },
     {
       id: uuid.v4(),
@@ -41,7 +37,8 @@ const initialState = window.localStorage.cows || {
       isFemale: false,
       color: "Black",
       born: "2018-04-06",
-      breed: "Ayshire"
+      breed: "Ayshire",
+      production: [250, 380, 300, 460, 720, 325, 640, 700, 805, 240, 200, 150]
     }
   ]
 };
