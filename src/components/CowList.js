@@ -13,7 +13,7 @@ const CowList = inject("cowsStore")(
                 <div style={{ width: "40px" }} />
               </div>
               <div className="column">Name</div>
-              <div className="column is-4-mobile is-3-tablet is-2-desktop">
+              <div className="column is-3-mobile is-2-widescreen">
                 Production
               </div>
               <div className="column is-2-tablet is-1-widescreen has-text-centered is-hidden-mobile">
